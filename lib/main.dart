@@ -1,5 +1,3 @@
-// Updated lib/main.dart with improved responsive design
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,64 +8,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Responsive Design',
+      title: 'Nagarik App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Responsive UI'),
+          title: Text('Nagarik App'),
         ),
-        body: ResponsiveLayout(
-          mobileBody: MobileBody(),
-          tabletBody: TabletBody(),
-          desktopBody: DesktopBody(),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[  
+              ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Image.network('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emblem_of_Nepal.svg/512px-Emblem_of_Nepal.svg.png', width: 24, height: 24),
+                    SizedBox(width: 8),
+                    Text('Citizenship'),
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Image.network('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emblem_of_Nepal.svg/512px-Emblem_of_Nepal.svg.png', width: 24, height: 24),
+                    SizedBox(width: 8),
+                    Text('National ID'),
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Image.network('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emblem_of_Nepal.svg/512px-Emblem_of_Nepal.svg.png', width: 24, height: 24),
+                    SizedBox(width: 8),
+                    Text('Driving License'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-    );
-  }
-}
-
-class ResponsiveLayout extends StatelessWidget {
-  final Widget mobileBody;
-  final Widget tabletBody;
-  final Widget desktopBody;
-
-  ResponsiveLayout({required this.mobileBody, required this.tabletBody, required this.desktopBody});
-
-  @override
-  Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth < 600) {
-      return mobileBody; // Mobile layout
-    } else if (screenWidth < 1200) {
-      return tabletBody; // Tablet layout
-    } else {
-      return desktopBody; // Desktop layout
-    }
-  }
-}
-
-class MobileBody extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('This is the mobile layout'),
-    );
-  }
-}
-
-class TabletBody extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('This is the tablet layout'),
-    );
-  }
-}
-
-class DesktopBody extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('This is the desktop layout'),
     );
   }
 }
